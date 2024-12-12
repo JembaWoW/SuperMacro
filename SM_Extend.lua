@@ -17,6 +17,7 @@ overpowerCooldownEndTime = 0
 
 -- Update Overpower cooldown
 local function UpdateOverpowerCooldown()
+	if UnitClass("player") ~= "Warrior" then return end
 	local start,duration,enable = GetSpellCooldown(SpellNum("Overpower"),BOOKTYPE_SPELL)
 	if enable and start > 0 and duration > 1.5 then
 		overpowerCooldownEndTime = start + duration
